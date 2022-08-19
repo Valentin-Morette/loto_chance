@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 1.5rem;
+}
+
+.information {
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 1.5rem;
+}
+
+.allNum {
+  display: flex;
+  justify-content: space-evenly;
+  .base {
+    list-style: none;
+    display: flex;
+    gap: 75px;
+    justify-content: center;
+    li {
+      input {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        font-size: 30px;
+      }
+    }
+  }
+  input {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    font-size: 30px;
+  }
+}
+.btn {
+  margin: 1.5rem;
+  display: flex;
+  justify-content: center;
+  button {
+    font-size: 1.5rem;
+  }
+}
+
+.allNumList {
+  display: flex;
+  justify-content: space-evenly;
+  .list {
+    li {
+      list-style: none;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.result {
+  text-align: center;
+  margin: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.allResult {
+  list-style: none;
+  text-align: center;
+  li {
+    margin-top: 1rem;
+  }
+}
