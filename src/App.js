@@ -1,5 +1,5 @@
 import './App.scss';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
   const [numOne, setNumOne] = useState(0);
@@ -27,7 +27,8 @@ function App() {
   const [res12, setRes12] = useState(0);
 
   function hasDuplicates(arr) {
-    return arr.some((x) => arr.indexOf(x) !== arr.lastIndexOf(x));
+    if (arr === undefined) return false;
+    else return arr.some((x) => arr.indexOf(x) !== arr.lastIndexOf(x));
   }
 
   const generateRandomTable = () => {
@@ -84,7 +85,9 @@ function App() {
       }
     }
     setCount(counter);
-    generateResult(counter, comp);
+    if (arr1.length === 2) {
+      generateResult(counter, comp);
+    }
   };
 
   const generateResult = (count, complement) => {
@@ -116,14 +119,11 @@ function App() {
   };
 
   const generateAllTable = () => {
-    generateTable();
     generateRandomTable();
-    setCompare(true);
-  };
-
-  useEffect(() => {
+    generateTable();
+    setCompare(allNumbers[0] !== undefined);
     compareTable(allNumbers, allRandomNumbers, compare);
-  }, [allNumbers, allRandomNumbers, compare]);
+  };
 
   return (
     <>
@@ -228,11 +228,15 @@ function App() {
               <p>Vos numéros</p>
               <ul>
                 {!hasDuplicates(allNumbers[0]) ? (
-                  allNumbers[0].map((num, index) => <li key={index}>{num}</li>)
+                  <>
+                    {allNumbers[0].map((num, index) => (
+                      <li key={index}>{num}</li>
+                    ))}
+                    <li>{allNumbers[1]}</li>{' '}
+                  </>
                 ) : (
-                  <p>Il y a des doublons !</p>
+                  alert('Vous avez des doublons')
                 )}
-                <li>{allNumbers[1]}</li>
               </ul>
             </div>
             <div className="list">
